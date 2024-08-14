@@ -1,0 +1,9 @@
+{
+	"name": "rayaanDataFactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4e2c212f-6183-4091-9e98-e1ff498ead56",
+		"tenantId": "5b973f99-77df-4beb-b27d-aa0c70b8482c"
+	}
+}
