@@ -8,6 +8,9 @@
 		"parameters": {
 			"FileName": {
 				"type": "String"
+			},
+			"Subdirectory": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -19,7 +22,10 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"folderPath": "dummy",
+				"folderPath": {
+					"value": "@dataset().Subdirectory",
+					"type": "Expression"
+				},
 				"fileSystem": "retaildb"
 			},
 			"columnDelimiter": ",",
