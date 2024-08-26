@@ -1,0 +1,60 @@
+{
+	"name": "Databricks",
+	"properties": {
+		"activities": [
+			{
+				"name": "Notebook1",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/rayaan.kapoor@in.ey.com/Untitled Notebook 2024-08-26 17:42:02"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_Databricks",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Notebook1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "StatusMessage",
+					"value": {
+						"value": "@activity('Notebook1').output.runOutput",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"StatusMessage": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Data Movement Activity"
+		},
+		"annotations": []
+	}
+}
